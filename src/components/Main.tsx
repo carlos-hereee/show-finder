@@ -8,17 +8,18 @@ import axios from "axios";
 const Main = () => {
   const [movie, setMovie] = useState([]);
 
-  function submitForm(e) {
+  const submitForm = (e) => {
     axios
       .get(`http://api.tvmaze.com/search/shows?q=${e.movie}`)
       .then((response) => setMovie(response.data));
-  }
+  };
   return (
     <div className="main-container">
       <div className="main-wrapper">
         <Formik
           initialValues={{ movie: "" }}
-          onSubmit={(values) => submitForm(values)}>
+          onSubmit={(values) => submitForm(values)}
+        >
           <Form className="main-search-bar">
             <div className="search-bar-form">
               <FontAwesomeIcon icon={faSearch} size="2x" className="icon" />
