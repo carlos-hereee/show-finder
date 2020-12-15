@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Field, Formik, Form } from "formik";
 import axios from "axios";
+import { TvMaze } from "../data";
 
 interface MyFormValues {
   movie: string;
@@ -39,35 +40,26 @@ const Main: React.FC = () => {
         </Formik>
         <div className="movie-container">
           {show.length > 0 &&
-            show.map(
-              (data: {
-                show: {
-                  id: number;
-                  name: string;
-                  summary: string;
-                  image: { medium: string };
-                };
-              }) => (
-                <div key={data.show.id} className="movie-card">
-                  <div className="movie-poster">
-                    <img
-                      src={data.show.image && data.show.image.medium}
-                      alt={data.show.name}
-                      className="movie-poster-img"
-                    />
-                  </div>
-                  <div className="movie-content">
-                    <div>
-                      <h3>{data.show.name}</h3>
-                      <p>{data.show.summary && parse(data.show.summary)}</p>
-                      <button type="button" className="show-episodes-btn">
-                        Show Episodes
-                      </button>
-                    </div>
+            show.map((data: TvMaze) => (
+              <div key={data.show.id} className="movie-card">
+                <div className="movie-poster">
+                  <img
+                    src={data.show.image && data.show.image.medium}
+                    alt={data.show.name}
+                    className="movie-poster-img"
+                  />
+                </div>
+                <div className="movie-content">
+                  <div>
+                    <h3>{data.show.name}</h3>
+                    <p>{data.show.summary && parse(data.show.summary)}</p>
+                    <button type="button" className="show-episodes-btn">
+                      Show Episodes
+                    </button>
                   </div>
                 </div>
-              )
-            )}
+              </div>
+            ))}
         </div>
       </div>
     </div>

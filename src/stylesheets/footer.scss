@@ -1,0 +1,13 @@
+.footer {
+  text-align: center;
+  background-color: $header-bg;
+  color: white;
+  width: 100%;
+  padding: 1rem 0;
+  .footer__link {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}
