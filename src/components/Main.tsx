@@ -5,20 +5,27 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Field, Formik, Form } from "formik";
 import axios from "axios";
 
-const Main = () => {
-  const [movie, setMovie] = useState([]);
+interface MyFormValues {
+  movie: string;
+}
 
-  const submitForm = (e) => {
+const Main: React.FC = () => {
+  const [show, setShow] = useState([]);
+  const initialValues: MyFormValues = { movie: "" };
+
+  const submitForm = (e: { movie: string }) => {
     axios
       .get(`http://api.tvmaze.com/search/shows?q=${e.movie}`)
-      .then((response) => setMovie(response.data));
+      .then((response) => setShow(response.data));
   };
   return (
     <div className="main-container">
       <div className="main-wrapper">
         <Formik
-          initialValues={{ movie: "" }}
-          onSubmit={(values) => submitForm(values)}
+          initialValues={initialValues}
+          onSubmit={(values) => {
+            submitForm(values);
+          }}
         >
           <Form className="main-search-bar">
             <div className="search-bar-form">
@@ -31,30 +38,36 @@ const Main = () => {
           </Form>
         </Formik>
         <div className="movie-container">
-          {movie.length > 0 &&
-            movie.map((data) => {
-              const { show } = data;
-              return (
+          {show.length > 0 &&
+            show.map(
+              (data: {
+                show: {
+                  id: number;
+                  name: string;
+                  summary: string;
+                  image: { medium: string };
+                };
+              }) => (
                 <div key={data.show.id} className="movie-card">
                   <div className="movie-poster">
                     <img
-                      src={show.image && show.image.medium}
-                      alt={show.name}
+                      src={data.show.image && data.show.image.medium}
+                      alt={data.show.name}
                       className="movie-poster-img"
                     />
                   </div>
                   <div className="movie-content">
                     <div>
-                      <h3>{show.name}</h3>
-                      <p>{show.summary && parse(show.summary)}</p>
+                      <h3>{data.show.name}</h3>
+                      <p>{data.show.summary && parse(data.show.summary)}</p>
                       <button type="button" className="show-episodes-btn">
                         Show Episodes
                       </button>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              )
+            )}
         </div>
       </div>
     </div>
