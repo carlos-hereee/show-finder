@@ -1,13 +1,16 @@
 import React from "react";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Header from "./pages/Header";
+import Main from "./pages/Main";
+import Footer from "./pages/Footer";
+import { ShowFinderState } from "./utils/context/showFinder/ShowFinderState";
 import "./stylesheets/index.scss";
 
 const App: React.FC = () => (
-  <div className="App">
+  <div className="app">
     <Header />
-    <Main />
+    <ShowFinderState>
+      <Main />
+    </ShowFinderState>
     <Footer />
   </div>
 );

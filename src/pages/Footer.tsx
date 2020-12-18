@@ -7,8 +7,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer: React.FC = () => (
-  <footer>
-    <div className="footer">
+  <footer className="footer">
+    <div className="footer__copyright">
+      <p>© 2020 - Show Finder</p>
+    </div>
+    <div className="footer__links">
       <a
         href="https://www.linkedin.com/in/ch04937-carlos-hernandez/"
         className="footer__link"

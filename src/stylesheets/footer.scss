@@ -1,9 +1,22 @@
 .footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
   background-color: $header-bg;
   color: white;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
+  @media #{$mobile} {
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .footer__copyright {
+    width: 100%;
+  }
+  .footer__links {
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+  }
   .footer__link {
     color: white;
     &:hover {
