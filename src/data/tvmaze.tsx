@@ -10,7 +10,8 @@ export interface TvMaze {
       name: string;
       summary: string;
       url: string;
-    }[];
+    };
   }[];
+  // eslint-disable-next-line no-unused-vars
   getShow: (movie: string) => void;
 }
