@@ -1,46 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import parse from "html-react-parser";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Field, Formik, Form } from "formik";
-import axios from "axios";
-import { TvMaze } from "../data";
-
-interface MyFormValues {
-  movie: string;
-}
+import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
+import SearchBar from "../components/SearchBar";
+import { TvMaze } from "../data/tvmaze";
 
 const Main: React.FC = () => {
-  const [show, setShow] = useState([]);
-  const initialValues: MyFormValues = { movie: "" };
-
-  const submitForm = (e: { movie: string }) => {
-    axios
-      .get(`http://api.tvmaze.com/search/shows?q=${e.movie}`)
-      .then((response) => setShow(response.data));
-  };
+  const { showFinder } = useContext(ShowFinderContext);
+  console.log("showFinder", showFinder.length);
   return (
     <div className="main-container">
       <div className="main-wrapper">
-        <Formik
-          initialValues={initialValues}
-          onSubmit={(values) => {
-            submitForm(values);
-          }}
-        >
-          <Form className="main-search-bar">
-            <div className="search-bar-form">
-              <FontAwesomeIcon icon={faSearch} size="2x" className="icon" />
-              <Field type="text" name="movie" />
-            </div>
-            <button type="submit" className="search-btn">
-              Search
-            </button>
-          </Form>
-        </Formik>
+        <SearchBar />
         <div className="movie-container">
-          {show.length > 0 &&
-            show.map((data: TvMaze) => (
+          {showFinder.length > 1 &&
+            showFinder.map((data: any) => (
               <div key={data.show.id} className="movie-card">
                 <div className="movie-poster">
                   <img
