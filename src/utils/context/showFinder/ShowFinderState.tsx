@@ -1,7 +1,6 @@
 import React, { createContext, useReducer } from "react";
-// import { axiosWithAuth, client } from "../../axios";
+import axios from "axios";
 import { TvMaze } from "../../../data/tvmaze";
-import { IS_LOADING, SET_ERROR, GET_SHOW_SUCCESS } from "../type";
 import { reducer } from "./reducer";
 
 const initialState: TvMaze = {
@@ -27,16 +26,14 @@ const ShowFinderContext = createContext<TvMaze>(initialState);
 const ShowFinderState: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getShow = (movie: string) => {
-    dispatch({ type: IS_LOADING, payload: true });
-    fetch(`http://api.tvmaze.com/search/shows?q=${movie}`)
-      .then((response) => response.json())
-      .then((res) => {
-        dispatch({ type: GET_SHOW_SUCCESS, payload: res });
-      })
-      .catch(() =>
-        dispatch({ type: SET_ERROR, payload: "Could not find the movie" })
-      );
+  const getShow = async (movie: string) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    try {
+      const response = await axios.get(`/search/shows?q=${movie}`);
+      dispatch({ type: "GET_SHOW_SUCCESS", payload: response.data });
+    } catch (error) {
+      dispatch({ type: "SET_ERROR", payload: "Could not find the movie" });
+    }
   };
   return (
     <ShowFinderContext.Provider
