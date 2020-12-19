@@ -1,4 +1,3 @@
-import shortid from "shortid";
 import React, { useContext } from "react";
 import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
 import SearchBar from "../components/SearchBar";
@@ -13,7 +12,7 @@ const Main: React.FC = () => {
         <div className="movie-container">
           {showFinder.length > 1 &&
             showFinder.map((data) => (
-              <div key={shortid.generate()}>
+              <div key={data.show.id}>
                 <Show movie={data.show} />
               </div>
             ))}

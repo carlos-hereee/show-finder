@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import axios from "axios";
-import { TvMaze } from "../../../data/tvmaze";
+import { TvMaze } from "../type/type";
 import { reducer } from "./reducer";
 
 const initialState: TvMaze = {

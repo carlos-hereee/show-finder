@@ -1,19 +1,4 @@
-import { TvMaze } from "../../../data/tvmaze";
-
-interface ShowFinder {
-  score: number;
-  show: {
-    id: number;
-    image: {
-      medium: string;
-      original: string;
-    };
-    language: string;
-    name: string;
-    summary: string;
-    url: string;
-  };
-}
+import { TvMaze, ShowFinder } from "../type/type";
 
 type ActionType =
   | { type: "IS_LOADING"; payload: boolean }
