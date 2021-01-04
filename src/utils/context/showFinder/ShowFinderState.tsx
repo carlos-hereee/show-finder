@@ -6,19 +6,7 @@ import { reducer } from "./reducer";
 const initialState: TvMaze = {
   isLoading: false,
   error: "",
-  showFinder: [
-    {
-      score: 0,
-      show: {
-        id: 0,
-        image: { medium: "", original: "" },
-        language: "",
-        name: "",
-        summary: "",
-        url: "",
-      },
-    },
-  ],
+  showFinder: [],
   getShow: () => null,
 };
 const ShowFinderContext = createContext<TvMaze>(initialState);

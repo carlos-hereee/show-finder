@@ -10,12 +10,11 @@ const Main: React.FC = () => {
       <div className="main-wrapper">
         <SearchBar />
         <div className="movie-container">
-          {showFinder.length > 1 &&
-            showFinder.map((data) => (
-              <div key={data.show.id}>
-                <Show movie={data.show} />
-              </div>
-            ))}
+          {showFinder.map((data) => (
+            <div key={data.show.id}>
+              <Show movie={data.show} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

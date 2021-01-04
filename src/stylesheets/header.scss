@@ -1,5 +1,11 @@
-.header__title {
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: $header-bg;
   color: white;
   padding: 1rem 2rem;
+  .header__logo {
+    display: flex;
+  }
 }
