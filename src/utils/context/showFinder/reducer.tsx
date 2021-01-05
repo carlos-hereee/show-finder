@@ -1,4 +1,4 @@
-import { TvMaze, ShowFinder } from "../type/type";
+import { TvMaze, ShowFinder } from "../../type/type";
 
 type ActionType =
   | { type: "IS_LOADING"; payload: boolean }

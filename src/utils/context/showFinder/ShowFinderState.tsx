@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
-import axios from "axios";
-import { TvMaze } from "../type/type";
+import { TvMaze } from "../../type/type";
+import { client } from "../../axios";
 import { reducer } from "./reducer";
 
 const initialState: TvMaze = {
@@ -17,7 +17,8 @@ const ShowFinderState: React.FC = ({ children }) => {
   const getShow = async (movie: string) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const response = await axios.get(`/search/shows?q=${movie}`);
+      const response = await client.get(`search/shows?q=${movie}`);
+      console.log("response", response.data);
       dispatch({ type: "GET_SHOW_SUCCESS", payload: response.data });
     } catch (error) {
       dispatch({ type: "SET_ERROR", payload: "Could not find the movie" });

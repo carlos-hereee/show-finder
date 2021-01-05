@@ -12,14 +12,16 @@ interface ShowProps {
   };
 }
 
-const Movie: React.FC<ShowProps> = ({ movie }) => (
+const Show: React.FC<ShowProps> = ({ movie }) => (
   <div className="movie-card">
     <div className="movie-poster">
-      <img
-        src={movie.image && movie.image.medium}
-        alt={movie.name}
-        className="movie-poster-img"
-      />
+      {movie.image && (
+        <img
+          src={movie.image.medium}
+          alt={movie.name}
+          className="movie-poster-img"
+        />
+      )}
     </div>
     <div className="movie-content">
       <div>
@@ -33,4 +35,4 @@ const Movie: React.FC<ShowProps> = ({ movie }) => (
   </div>
 );
 
-export default Movie;
+export default Show;
