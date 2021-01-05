@@ -6,7 +6,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Social = () => (
+const Social: React.FC = () => (
   <>
     <a
       href="https://www.linkedin.com/in/ch04937-carlos-hernandez/"
@@ -22,4 +22,5 @@ const Social = () => (
     </a>
   </>
 );
+
 export default Social;
