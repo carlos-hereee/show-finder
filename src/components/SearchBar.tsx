@@ -20,7 +20,7 @@ const SeachBar: React.FC = () => {
           <FontAwesomeIcon icon={faSearch} size="2x" className="icon" />
           <Field type="text" name="movie" />
         </div>
-        <button type="submit" className="search-btn">
+        <button type="submit" className="button">
           Search
         </button>
       </Form>

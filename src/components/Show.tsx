@@ -27,7 +27,7 @@ const Show: React.FC<ShowProps> = ({ movie }) => (
       <div>
         <h3>{movie.name}</h3>
         <p>{movie.summary && parse(movie.summary)}</p>
-        <button type="button" className="show-episodes-btn">
+        <button type="button" className="button">
           Show Episodes
         </button>
       </div>
