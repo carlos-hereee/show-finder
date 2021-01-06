@@ -26,13 +26,6 @@
           width: 100%;
         }
       }
-      .search-btn {
-        margin-left: 1rem;
-        border-radius: 4px;
-        background-color: $header-bg;
-        color: white;
-        padding: 0 1rem;
-      }
     }
     .movie-container {
       max-width: 1400px;
@@ -54,12 +47,6 @@
           width: 100%;
           text-align: left;
           margin: auto 3rem;
-          .show-episodes-btn {
-            border-radius: 4px;
-            background-color: $header-bg;
-            color: white;
-            padding: 0.5rem 1rem;
-          }
         }
       }
     }
