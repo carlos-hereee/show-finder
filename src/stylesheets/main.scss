@@ -35,9 +35,9 @@
     justify-content: space-around;
     background-color: $content-bg;
     margin-top: 2rem;
-    .movie-poster {
+    .movie-poster__cover {
       padding: 1rem;
-      .movie-poster-img {
+      .movie-poster {
         object-fit: cover;
         border-radius: 10px;
       }

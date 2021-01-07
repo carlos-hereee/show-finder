@@ -1,15 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
+import shortid from "shortid";
+import Show from "../components/Show";
 import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
 
 const HomePage: React.FC = () => {
-  const { getAllShow } = useContext(ShowFinderContext);
+  const { getAllShow, allShowFinder } = useContext(ShowFinderContext);
   const [page, setPage] = useState<number>(1);
-  // useEffect(()=>{
-  //   getAllShow(1)
-  // }, [])
-  console.log("page", page);
+  useEffect(() => {
+    getAllShow(page);
+  }, []);
+  console.log("allShowFinder", allShowFinder);
   return (
     <div>
+      <p>Page {page}</p>
       <button
         type="button"
         className="button"
@@ -25,6 +28,15 @@ const HomePage: React.FC = () => {
       >
         Next
       </button>
+      {allShowFinder &&
+        allShowFinder.map((data) => {
+          return (
+            <div key={shortid.generate()}>
+              <p>{data.score}</p>
+              <Show movie={data.show} />
+            </div>
+          );
+        })}
     </div>
   );
 };

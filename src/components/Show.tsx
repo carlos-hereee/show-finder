@@ -14,14 +14,8 @@ interface ShowProps {
 
 const Show: React.FC<ShowProps> = ({ movie }) => (
   <div className="movie-card">
-    <div className="movie-poster">
-      {movie.image && (
-        <img
-          src={movie.image.medium}
-          alt={movie.name}
-          className="movie-poster-img"
-        />
-      )}
+    <div className="movie-poster__cover">
+      <img src={movie.image.medium} alt={movie.name} className="movie-poster" />
     </div>
     <div className="movie-content">
       <div>
