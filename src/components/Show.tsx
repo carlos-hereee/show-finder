@@ -1,18 +1,12 @@
 import React from "react";
 import parse from "html-react-parser";
+import { AllShowFinder } from "../utils/type/type";
 
-interface ShowProps {
-  movie: {
-    id: number;
-    image: { medium: string; original: string };
-    language: string;
-    name: string;
-    summary: string;
-    url: string;
-  };
-}
+type MovieProps = {
+  movie: AllShowFinder;
+};
 
-const Show: React.FC<ShowProps> = ({ movie }) => (
+const Show: React.FC<MovieProps> = ({ movie }) => (
   <div className="movie-card">
     <div className="movie-poster__cover">
       <img src={movie.image.medium} alt={movie.name} className="movie-poster" />

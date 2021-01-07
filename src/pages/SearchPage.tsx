@@ -10,7 +10,7 @@ const SearchPage: React.FC = () => {
       {showFinder &&
         showFinder.map((data) => (
           <div key={shortid.generate()}>
-            <Show movie={data.show} />
+            <Show movie={data} />
           </div>
         ))}
     </div>

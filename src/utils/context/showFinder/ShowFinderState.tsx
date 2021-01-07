@@ -9,6 +9,7 @@ const initialState: TvMaze = {
   showFinder: [],
   allShowFinder: [],
   activeShow: "",
+  page: 1,
   getShow: () => null,
   getAllShow: () => null,
 };
@@ -42,6 +43,7 @@ const ShowFinderState: React.FC = ({ children }) => {
         showFinder: state.showFinder,
         allShowFinder: state.allShowFinder,
         activeShow: state.activeShow,
+        page: state.page,
         getShow,
         getAllShow,
       }}

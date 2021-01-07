@@ -1,10 +1,10 @@
-import { TvMaze, ShowFinder } from "../../type/type";
+import { TvMaze, AllShowFinder } from "../../type/type";
 
 type ActionType =
   | { type: "IS_LOADING"; payload: boolean }
   | { type: "SET_ERROR"; payload: string }
-  | { type: "GET_SHOW_SUCCESS"; payload: ShowFinder[] }
-  | { type: "GET_SHOW_ALL_SUCCESS"; payload: ShowFinder[] };
+  | { type: "GET_SHOW_SUCCESS"; payload: AllShowFinder[] }
+  | { type: "GET_SHOW_ALL_SUCCESS"; payload: AllShowFinder[] };
 
 // eslint-disable-next-line import/prefer-default-export
 export const reducer = (state: TvMaze, action: ActionType): TvMaze => {
