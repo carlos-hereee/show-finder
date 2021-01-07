@@ -67,7 +67,8 @@ export interface TvMaze {
   error: string;
   showFinder: AllShowFinder[];
   page: number;
-  activeShow: "";
+  activeShow: string;
+  activePage: string;
   allShowFinder: AllShowFinder[];
   getShow: (movie: string) => void;
   getAllShow: (page: number) => void;
