@@ -1,10 +1,20 @@
-.footer {
+.header {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: $header-bg;
   color: white;
   padding: 1rem 2rem;
+  .header__logo {
+    display: flex;
+  }
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $header-bg;
+  color: white;
   @media #{$mobile} {
     text-align: center;
     flex-wrap: wrap;

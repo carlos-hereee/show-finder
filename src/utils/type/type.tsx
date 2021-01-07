@@ -1,3 +1,4 @@
+/* eslint-disable  */
 export interface ShowFinder {
   score: number;
   show: {
@@ -17,6 +18,12 @@ export interface TvMaze {
   isLoading: boolean;
   error: string;
   showFinder: ShowFinder[];
-  // eslint-disable-next-line no-unused-vars
+  activeShow: "";
+  allShowFinder: ShowFinder[];
   getShow: (movie: string) => void;
+  getAllShow: (page: number) => void;
+}
+
+export interface ToogleShow {
+  [key: string]: JSX.Element;
 }

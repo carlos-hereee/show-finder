@@ -7,7 +7,6 @@ import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
 const SeachBar: React.FC = () => {
   const { getShow } = useContext(ShowFinderContext);
   const initialValues: { movie: string } = { movie: "" };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -15,7 +14,7 @@ const SeachBar: React.FC = () => {
         getShow(values.movie);
       }}
     >
-      <Form className="main-search-bar">
+      <Form className="search-bar">
         <div className="search-bar-form">
           <FontAwesomeIcon icon={faSearch} size="2x" className="icon" />
           <Field type="text" name="movie" />
