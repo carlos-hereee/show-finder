@@ -15,12 +15,15 @@ const HomePage: React.FC = () => {
   const offset = currentPage * perPage;
   const currentPageData = allShowFinder
     .slice(offset, offset + perPage)
-    .map((data) => (
-      <div key={shortid.generate()}>
-        <p>page 1</p>
-        <Show movie={data} />
-      </div>
-    ));
+    .map((data) => {
+      console.log("data", data);
+      return (
+        <div key={data.id}>
+          {data.id}
+          {/* <Show movie={data} /> */}
+        </div>
+      );
+    });
   const pageCount = Math.ceil(allShowFinder.length / perPage);
   const handlePageClick = (page: { selected: number }) => {
     setCurrentPage(page.selected);
@@ -33,11 +36,16 @@ const HomePage: React.FC = () => {
       pageRangeDisplayed={3}
       marginPagesDisplayed={2}
       onPageChange={handlePageClick}
-      containerClassName="pagination"
-      previousLinkClassName="pagination__link"
-      nextLinkClassName="pagination__link"
-      disabledClassName="pagination__link--disabled"
-      activeClassName="pagination__link--active"
+      breakClassName="page-item"
+      breakLinkClassName="page-link"
+      containerClassName="pagination justify-content-center pagination-circle"
+      pageClassName="page-item"
+      pageLinkClassName="page-link"
+      previousClassName="page-item"
+      previousLinkClassName="page-link"
+      nextClassName="page-item"
+      nextLinkClassName="page-link"
+      activeClassName="active"
     >
       {currentPageData}
     </ReactPaginate>

@@ -9,6 +9,7 @@ Look up any movie or tv show and get the shows information
 - This project is in React.js, Typescript, and Sass (scss)
 - Using external api [tv-maze](https://www.tvmaze.com/api)
 - React context's for state management
+- Bootstrap
 
 ## Style Guide
 
