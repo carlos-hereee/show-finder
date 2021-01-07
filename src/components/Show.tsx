@@ -1,11 +1,10 @@
 import React from "react";
 import parse from "html-react-parser";
-import { AllShowFinder } from "../utils/type/type";
+import { SingleShow } from "../utils/type/type";
 
 type MovieProps = {
-  movie: AllShowFinder;
+  movie: SingleShow;
 };
-
 const Show: React.FC<MovieProps> = ({ movie }) => (
   <div className="movie-card">
     <div className="movie-poster__cover">

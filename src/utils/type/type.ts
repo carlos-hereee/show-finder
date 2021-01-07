@@ -1,19 +1,5 @@
 /* eslint-disable  */
-export interface ShowFinder {
-  score: number;
-  show: {
-    id: number;
-    image: {
-      medium: string;
-      original: string;
-    };
-    language: string;
-    name: string;
-    summary: string;
-    url: string;
-  };
-}
-export interface AllShowFinder {
+export interface SingleShow {
   id: number;
   url: string;
   name: string;
@@ -65,11 +51,11 @@ export interface AllShowFinder {
 export interface TvMaze {
   isLoading: boolean;
   error: string;
-  showFinder: AllShowFinder[];
+  showFinder: SingleShow[];
   page: number;
   activeShow: string;
   activePage: string;
-  allShowFinder: AllShowFinder[];
+  allShowFinder: SingleShow[];
   getShow: (movie: string) => void;
   getAllShow: (page: number) => void;
 }

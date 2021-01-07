@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import shortid from "shortid";
 import Show from "../components/Show";
 import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
+import showFinder from "../data/api.json";
 
 const SearchPage: React.FC = () => {
-  const { showFinder } = useContext(ShowFinderContext);
+  // const { showFinder } = useContext(ShowFinderContext);
   return (
     <div>
       {showFinder &&
