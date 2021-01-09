@@ -20,9 +20,9 @@ const Show: React.FC<MovieProps> = ({ movie }) => (
       <div>
         <h3>{movie.name}</h3>
         <p>{movie.summary && parse(movie.summary)}</p>
-        <button type="button" className="button">
+        {/* <button type="button" className="button">
           Show Episodes
-        </button>
+        </button> */}
       </div>
     </div>
   </div>
