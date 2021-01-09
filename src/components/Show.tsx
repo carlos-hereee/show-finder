@@ -8,7 +8,13 @@ type MovieProps = {
 const Show: React.FC<MovieProps> = ({ movie }) => (
   <div className="movie-card">
     <div className="movie-poster__cover">
-      <img src={movie.image.medium} alt={movie.name} className="movie-poster" />
+      {movie.image && (
+        <img
+          src={movie.image.medium}
+          alt={movie.name}
+          className="movie-poster"
+        />
+      )}
     </div>
     <div className="movie-content">
       <div>

@@ -40,8 +40,8 @@ export interface SingleShow {
     imdb: string | null;
   } | null;
   image: {
-    medium: string;
-    original: string;
+    medium: string | undefined;
+    original: string | undefined;
   };
   summary: string;
   updated: number;
@@ -51,7 +51,7 @@ export interface SingleShow {
 export interface TvMaze {
   isLoading: boolean;
   error: string;
-  showFinder: SingleShow[];
+  showFinder: { score: number; show: SingleShow }[];
   page: number;
   activeShow: string;
   activePage: string;

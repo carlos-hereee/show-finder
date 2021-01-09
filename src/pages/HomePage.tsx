@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import Show from "../components/Show";
 import { ShowFinderContext } from "../utils/context/showFinder/ShowFinderState";
+import Show from "../components/Show";
 
 const HomePage: React.FC = () => {
   const { getAllShow, allShowFinder } = useContext(ShowFinderContext);
@@ -43,7 +43,13 @@ const HomePage: React.FC = () => {
         nextLinkClassName="page-link"
         activeClassName="active"
       />
-      {currentPageData}
+      {currentPageData || (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border text-dark" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

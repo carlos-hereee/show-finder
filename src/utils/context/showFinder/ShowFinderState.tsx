@@ -23,7 +23,6 @@ const ShowFinderState: React.FC = ({ children }) => {
     dispatch({ type: "SET_PAGE_SEARCH", payload: "searchpage" });
     try {
       const response = await client.get(`search/shows?q=${movie}`);
-      console.log("typeof response.data", typeof response.data);
       dispatch({ type: "GET_SHOW_SUCCESS", payload: response.data });
     } catch (error) {
       dispatch({ type: "SET_ERROR", payload: "Could not find the movie" });

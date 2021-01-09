@@ -5,7 +5,7 @@ type ActionType =
   | { type: "SET_ERROR"; payload: string }
   | { type: "SET_PAGE_HOME"; payload: string }
   | { type: "SET_PAGE_SEARCH"; payload: string }
-  | { type: "GET_SHOW_SUCCESS"; payload: SingleShow[] }
+  | { type: "GET_SHOW_SUCCESS"; payload: { score: number; show: SingleShow }[] }
   | { type: "GET_SHOW_ALL_SUCCESS"; payload: SingleShow[] };
 
 // eslint-disable-next-line import/prefer-default-export
