@@ -1,54 +1,51 @@
-.main-container {
-  width: 100%;
-  .main-wrapper {
+.show-finder {
+  background-color: white;
+  margin: 2rem;
+  box-shadow: 0 0 5px 5px #f0f0f0;
+  text-align: center;
+  .search-bar {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
     background-color: white;
-    margin: 2rem;
-    box-shadow: 0 0 5px 5px #f0f0f0;
-    text-align: center;
-    .main-search-bar {
-      max-width: 800px;
-      margin: auto;
-      padding: 1rem;
-      background-color: white;
+    display: flex;
+    flex-direction: row;
+    .search-bar-form {
+      background-color: $content-bg;
       display: flex;
       flex-direction: row;
-      .search-bar-form {
+      width: 100%;
+      .icon {
+        margin: auto;
+      }
+      input {
         background-color: $content-bg;
-        display: flex;
-        flex-direction: row;
+        border: none;
         width: 100%;
-        .icon {
-          margin: auto;
-        }
-        input {
-          background-color: $content-bg;
-          border: none;
-          width: 100%;
-        }
       }
     }
-    .movie-container {
-      max-width: 1400px;
-      padding: 1rem 0;
-      margin: auto;
-      .movie-card {
-        display: flex;
-        justify-content: space-around;
-        background-color: $content-bg;
-        margin-top: 2rem;
-        .movie-poster {
-          padding: 1rem;
-          .movie-poster-img {
-            object-fit: cover;
-            border-radius: 10px;
-          }
-        }
-        .movie-content {
-          width: 100%;
-          text-align: left;
-          margin: auto 3rem;
-        }
+  }
+}
+.show-finder__content {
+  max-width: 1400px;
+  padding: 1rem 0;
+  margin: auto;
+  .movie-card {
+    display: flex;
+    justify-content: space-around;
+    background-color: $content-bg;
+    margin-top: 2rem;
+    .movie-poster__cover {
+      padding: 1rem;
+      .movie-poster {
+        object-fit: cover;
+        border-radius: 10px;
       }
+    }
+    .movie-content {
+      width: 100%;
+      text-align: left;
+      margin: auto 3rem;
     }
   }
 }

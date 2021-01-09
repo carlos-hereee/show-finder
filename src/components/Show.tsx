@@ -1,25 +1,18 @@
 import React from "react";
 import parse from "html-react-parser";
+import { SingleShow } from "../utils/type/type";
 
-interface ShowProps {
-  movie: {
-    id: number;
-    image: { medium: string; original: string };
-    language: string;
-    name: string;
-    summary: string;
-    url: string;
-  };
-}
-
-const Show: React.FC<ShowProps> = ({ movie }) => (
+type MovieProps = {
+  movie: SingleShow;
+};
+const Show: React.FC<MovieProps> = ({ movie }) => (
   <div className="movie-card">
-    <div className="movie-poster">
+    <div className="movie-poster__cover">
       {movie.image && (
         <img
           src={movie.image.medium}
           alt={movie.name}
-          className="movie-poster-img"
+          className="movie-poster"
         />
       )}
     </div>
@@ -27,9 +20,9 @@ const Show: React.FC<ShowProps> = ({ movie }) => (
       <div>
         <h3>{movie.name}</h3>
         <p>{movie.summary && parse(movie.summary)}</p>
-        <button type="button" className="button">
+        {/* <button type="button" className="button">
           Show Episodes
-        </button>
+        </button> */}
       </div>
     </div>
   </div>
